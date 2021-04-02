@@ -18,7 +18,7 @@ describe("Create Category Controller", () => {
 
     await connection.query(
       `INSERT INTO USERS(id, name, email, password, "isAdmin", created_at,driver_license)
-        values('${id}','admin2','admin2@rentx.com.br','${password}',true,'now()','XXXXXX')
+        values('${id}','admin','admin3@rentx.com.br','${password}',true,'now()','XXXXXX')
       `
     );
   });
@@ -30,7 +30,7 @@ describe("Create Category Controller", () => {
 
   it("Should be able to create a new category", async () => {
     const responseToken = await request(app).post("/sessions").send({
-      email: "admin2@rentx.com.br",
+      email: "admin3@rentx.com.br",
       password: "admin",
     });
 
@@ -51,7 +51,7 @@ describe("Create Category Controller", () => {
 
   it("Should not be able to create a new category with same name exists", async () => {
     const responseToken = await request(app).post("/sessions").send({
-      email: "admin2@rentx.com.br",
+      email: "admin3@rentx.com.br",
       password: "admin",
     });
 
