@@ -46,12 +46,6 @@ describe("List Categories Controller", () => {
         Authorization: `Bearer ${token}`,
       });
 
-    // await connection.query(
-    //   `INSERT INTO categories(id, name, description, created_at)
-    //     VALUES('${uuid()}', 'Category test', 'Description category test', 'now()')
-    //   `
-    // );
-
     const response = await request(app).get("/categories");
 
     expect(response.status).toBe(200);
